@@ -13,6 +13,7 @@ import { onMounted,reactive } from 'vue';
 import { getMusicList } from "@/api/index.js"
 import listviewTop from "@/components/ListViewTop.vue"
 import playList from "@/components/PlayList.vue"
+import store from '@/store/index.js';
 export default {
     name:"listview",
     setup(){
@@ -31,6 +32,9 @@ export default {
             console.log(res);
             music.playlist = res.data.playlist;  //将获取的数据放到响应式数据中
             console.log(music.playlist);
+
+            //将当前专辑播放列表的数据传递到store中playlist中
+            store.commit("setPlayList",music.playlist.tracks);
         })
 
         return {music}
