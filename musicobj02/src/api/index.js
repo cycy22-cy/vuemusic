@@ -16,5 +16,14 @@ export function getMusic(limit=10){
 export function getMusicList(id){
     return axios.get(`${baseUrl}/playlist/detail?id=${id}`);
 }
+
+//封装歌单详情的api 调用例子： 
+export function getLyric(id){
+    return axios.get(`${baseUrl}/lyric?id=${id}`);
+}
+//封装歌单详情的api 调用例子： /search?keywords=海阔天空
+export function searchMusic(keywords){
+    return axios.get(`${baseUrl}/search?keywords=${keywords}`);
+}
 //对外抛出
-export default {getBanner,getMusic,getMusicList};
+export default {getBanner,getMusic,getMusicList,getLyric,searchMusic};

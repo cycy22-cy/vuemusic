@@ -15,7 +15,8 @@ export default createStore({
         }
       } 
     ],
-    playCurrentIndex:0   //当前播放音乐在播放列表下的下标
+    playCurrentIndex:0,   //当前播放音乐在播放列表下的下标
+    lyric:"adc"   //保存当前播放音乐的歌词
   },
   getters: {
   },
@@ -23,8 +24,14 @@ export default createStore({
     setPlayList(state,value){   //定义一个函数用来修改state中播放列表的数据
       state.playlist = value;
     },
+    pushPlayList(state,value){   //定义一个函数用在playlist末尾追加一条数据
+      state.playlist.push(value);
+    },
     setPlayIndex(state,value){  //定义了一个函数用来修改当前正在播放歌曲的下标
       state.playCurrentIndex = value;
+    },
+    setLyric(state,value){
+      state.lyric = value;  //定义了一个函数用来修改当前正在播放歌曲的歌词
     }
   },
   actions: {
